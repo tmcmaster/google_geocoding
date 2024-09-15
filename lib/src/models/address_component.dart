@@ -11,11 +11,9 @@ class AddressComponent {
 
   factory AddressComponent.fromJson(Map<String, dynamic> json) {
     return AddressComponent(
-      longName: json['long_name'],
-      shortName: json['short_name'],
-      types: json['types'] != null
-          ? (json['types'] as List<dynamic>).cast<String>()
-          : null,
+      longName: json['long_name'] as String?,
+      shortName: json['short_name'] as String?,
+      types: json['types'] != null ? (json['types'] as List<dynamic>).cast<String>() : null,
     );
   }
 }

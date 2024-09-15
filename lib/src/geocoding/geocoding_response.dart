@@ -10,17 +10,15 @@ class GeocodingResponse {
 
   factory GeocodingResponse.fromJson(Map<String, dynamic> json) {
     return GeocodingResponse(
-      status: json['status'],
-      results: json['results'] != null
-          ? json['results']
-              .map<GeocodingResult>((json) => GeocodingResult.fromJson(json))
-              .toList()
-          : null,
+      status: json['status'] as String?, // Assuming status can be null
+      results: (json['results'] as List<dynamic>?)
+          ?.map<GeocodingResult>((json) => GeocodingResult.fromJson(json as Map<String, dynamic>))
+          .toList(),
     );
   }
 
-  static GeocodingResponse parseGeocodingResponse(String responseBody) {
-    final parsed = json.decode(responseBody).cast<String, dynamic>();
+  factory GeocodingResponse.parseGeocodingResponse(String responseBody) {
+    final parsed = json.decode(responseBody) as Map<String, dynamic>;
     return GeocodingResponse.fromJson(parsed);
   }
 }

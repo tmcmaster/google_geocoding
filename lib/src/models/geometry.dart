@@ -17,12 +17,15 @@ class Geometry {
 
   factory Geometry.fromJson(Map<String, dynamic> json) {
     return Geometry(
-      location:
-          json['location'] != null ? Location.fromJson(json['location']) : null,
-      locationType: json['location_type'],
-      viewport:
-          json['viewport'] != null ? Viewport.fromJson(json['viewport']) : null,
-      bounds: json['bounds'] != null ? Bounds.fromJson(json['bounds']) : null,
+      location: json['location'] != null
+          ? Location.fromJson(json['location'] as Map<String, dynamic>)
+          : null,
+      locationType: json['location_type'] as String?,
+      viewport: json['viewport'] != null
+          ? Viewport.fromJson(json['viewport'] as Map<String, dynamic>)
+          : null,
+      bounds:
+          json['bounds'] != null ? Bounds.fromJson(json['bounds'] as Map<String, dynamic>) : null,
     );
   }
 }

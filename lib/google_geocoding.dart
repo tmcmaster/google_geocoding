@@ -22,6 +22,6 @@ class GoogleGeocoding {
   late Geocoding geocoding;
 
   GoogleGeocoding(this.apiKEY) {
-    this.geocoding = Geocoding(apiKEY);
+    geocoding = Geocoding(apiKEY);
   }
 }
