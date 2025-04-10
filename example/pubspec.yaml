@@ -9,14 +9,19 @@ dependencies:
   cupertino_icons:
   flutter:
     sdk: flutter
-  flutter_dotenv:
+  flutter_dotenv: 5.2.1
   google_geocoding:
-    path: ../
+    git:
+      url: git@github.com:tmcmaster/google_geocoding.git
   google_place:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+dependency_overrides:
+  google_geocoding:
+    path: ../
 
 flutter:
   uses-material-design: true
